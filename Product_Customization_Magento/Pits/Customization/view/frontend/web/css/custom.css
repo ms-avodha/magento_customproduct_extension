@@ -1,0 +1,33 @@
+
+.custom .submit-btn{
+    background: #e1e1e1;
+    border: 1px solid #dddddd;
+    color: #222222;
+    margin-bottom: 0;
+    @media (min-width: 769px){
+        width: auto;
+        margin: 0 15px 0 0;
+        display: inline-block;
+        float: left;
+    }
+    cursor: pointer;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    padding: 8px 15px;
+    font-size: 1.3rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 0;
+    line-height: 1.5rem;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    list-style: none none;
+
+}

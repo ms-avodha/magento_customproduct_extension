@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="custom_details" resource="default" engine="innodb" comment="Product Query">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"
+                 comment="Customer ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="32"  comment="Name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="32" comment="Email"/>
+        <column xsi:type="varchar" name="phone" nullable="false" length="32" comment="Phone"/>
+        <column xsi:type="varchar" name="requirement" nullable="false" length="64" comment="Requirement"/>
+        <column xsi:type="varchar" name="productname" nullable="false" length="32" comment="ProductName"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="32" comment="SKU"/>
+        <column xsi:type="int" name="status" nullable="false" default="0" comment="Status"/>
+        <column xsi:type="int" name="remark" nullable="false" default="0" comment="Remark"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="CUSTOM_DETAILS_NAME" indexType="fulltext">
+        <column name="name"/>
+        </index>
+        <index referenceId="CUSTOM_DETAILS_EMAIL" indexType="fulltext">
+        <column name="email"/>
+        </index>
+        <index referenceId="CUSTOM_DETAILS_PHONE" indexType="fulltext">
+        <column name="phone"/>
+        </index>
+        <index referenceId="CUSTOM_DETAILS_PRODUCTNAME" indexType="fulltext">
+        <column name="productname"/>
+        </index>
+        <index referenceId="CUSTOM_DETAILS_SKU" indexType="fulltext">
+        <column name="sku"/>
+        </index>
+    </table>
+</schema>

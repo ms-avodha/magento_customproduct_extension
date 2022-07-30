@@ -1,0 +1,105 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Pits\Customization\Block\Product\Product $block */
+$currentProduct = $block->getCurrentProduct();
+$recaptcha = $block->getConfigValueRecaptcha();
+$trueCheck = $block->getTrueUser();
+?>
+<div id="product-custom-container" data-role="product-review">
+    <?php 
+    if($block->isCustomerLoggedIn() || $block->getConfigAllowGuestUser()){
+    if($trueCheck == true){
+    ?>
+    <style>
+        .margin{
+            margin:10px;
+        }
+        #product-custom-container{
+            width:50%;
+        }
+        .fieldclass{
+            margin-top:10px; 
+        }
+    </style>
+    <form class="form" id="custom-form" method="post" autocomplete="off" action="<?php echo $block->formActionUrl(); ?> " onSubmit="return checkCaptcha() ;">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php echo __('Customization details') ?></span></legend><br>
+        <div class="field required">
+            <label for="name" class="label"><span><?php echo __('Name') ?></span></label>
+            <div class="control">
+                <input type="text" name="name" id="name" value="" title="<?php echo __('Name') ?>" class="input-text" data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field required">
+            <label for="email" class="label"><span><?php echo __('Email') ?></span></label>
+            <div class="control">
+                <input type="email" name="email" id="email_address" value="" title="<?php echo __('Email') ?>" class="input-text" data-validate="{required:true, 'validate-email':true}">
+            </div>
+        </div>
+        <div class="field required">
+            <label for="phone" class="label"><span><?php echo __('Phone') ?></span></label>
+            <div class="control">
+                <input type="text" name="phone" id="phone" value="" title="<?php echo __('Phone') ?>" class="input-text" data-validate="{required:true,'phonevalidation':true,'minlength':10,'maxlength':15}">
+            </div>
+        </div>
+        <div class="field required">
+            <label for="requirement" class="label"><span><?php echo __('Query') ?></span></label>
+            <div class="control">
+                <textarea name="requirement" id="requirement" cols="30" rows="4" value="" title="<?php echo __('Query') ?>" class="input-text" data-validate="{required:true}"></textarea> 
+            </div>
+        </div>  
+        <input type="hidden" name="productname" value=" <?php echo $currentProduct->getName() ?>">
+        <input type="hidden" name="sku" value=" <?php echo $currentProduct->getSku() ?>">
+        <div class="form-group required">
+            <div class="g-recaptcha required" id="recaptcha"
+                data-sitekey="<?php echo $recaptcha; ?>">
+            </div>
+            <div style="display:none" id="error-msg">
+                  <span><?php echo __('This is a required field.') ?></span>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="submit-btn" name="submit" title="<?php  echo __('Submit') ?>"><span><?php echo __('Submit') ?></span></button>
+        </div>
+    </div>
+    </form>
+    <script type="text/x-magento-init">
+    {
+        "#custom-form": {
+            "validation": {}
+        }
+    }
+    </script>
+    <?php  
+    }
+    else{
+        echo __("You can't do product customization  right now.");
+    }
+    }
+    else{
+    ?>
+    <span><?php echo __('Please login to your account to raise a customization request') ?></span> <br><br>
+    <a href="<?php echo $block->getLoginandRedirectpage(); ?>"><input class="action submit primary" type="button" value="<?php  echo __('Go to Login') ?>"></a>
+    <?php
+    }
+    ?>
+</div>
+<script>
+    function checkCaptcha() {
+        if ((jQuery('#g-recaptcha-response').val()) === '') {
+            jQuery('#error-msg').css('display', 'block');
+            jQuery('#error-msg').css('color', '#df280a');
+            jQuery('#error-msg').css('font-size', 13);
+            return false;
+        }
+        else {
+            jQuery('#error-msg').css('display', 'none');
+        }
+    }
+</script>

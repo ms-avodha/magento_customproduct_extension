@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customization>
+            <general>
+                <enable>1</enable>
+                <allow_guest>0</allow_guest>
+                <tab_name>Customization</tab_name>
+            </general>
+        </customization>
+    </default>
+</config>

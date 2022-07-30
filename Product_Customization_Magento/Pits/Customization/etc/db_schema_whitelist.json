@@ -1,0 +1,25 @@
+{
+    "custom_details": {
+        "column": {
+            "id": true,
+            "name": true,
+            "email": true,
+            "phone": true,
+            "requirement": true,
+            "productname": true,
+            "sku": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "CUSTOM_DETAILS_NAME": true,
+            "CUSTOM_DETAILS_EMAIL": true,
+            "CUSTOM_DETAILS_PHONE": true,
+            "CUSTOM_DETAILS_PRODUCTNAME": true,
+            "CUSTOM_DETAILS_SKU": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

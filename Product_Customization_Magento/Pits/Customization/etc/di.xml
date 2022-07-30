@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="customization_form_listing_data_source" xsi:type="string">Pits\Customization\Model\ResourceModel\Form\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Pits\Customization\Model\ResourceModel\Form\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">custom_details</argument>
+            <argument name="resourceModel" xsi:type="string">Pits\Customization\Model\ResourceModel\Form</argument> 
+        </arguments>
+    </virtualType>
+    <preference for="Pits\Customization\Api\CustomRepositoryInterface" type="Pits\Customization\Model\CustomRepository"/>
+    <preference for="Pits\Customization\Api\Data\CustomInterface" type="Pits\Customization\Model\Form"/>
+    <preference for="Pits\Customization\Api\Data\CustomSearchResultInterface" type="Magento\Framework\Api\SearchResults"/>
+</config>

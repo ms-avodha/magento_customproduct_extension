@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Created By: MageDelight Pvt. Ltd.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+   <argument name="data" xsi:type="array">
+      <item name="js_config" xsi:type="array">
+         <item name="provider" xsi:type="string">customization_form.customization_form_data_source</item>
+         <item name="deps" xsi:type="string">customization_form.customization_form_data_source</item>
+      </item>
+      <item name="label" xsi:type="string" translate="true">General Information</item>
+      <item name="config" xsi:type="array">
+         <item name="dataScope" xsi:type="string">data</item>
+         <item name="namespace" xsi:type="string">customization_form</item>
+      </item>
+      <item name="spinner" xsi:type="string">general_information</item>
+      <item name="buttons" xsi:type="array">
+         <item name="back" xsi:type="string">Pits\Customization\Block\Adminhtml\Index\View\Button\Back</item>
+         <item name="replay" xsi:type="string">Pits\Customization\Block\Adminhtml\Index\View\Button\Replay</item>
+         <item name="update" xsi:type="string">Pits\Customization\Block\Adminhtml\Index\View\Button\Update</item>
+         <item name="block" xsi:type="string">Pits\Customization\Block\Adminhtml\Index\View\Button\BlockUser</item>
+      </item>
+      <item name="template" xsi:type="string">templates/form/collapsible</item>
+   </argument>
+   <dataSource name="customization_form_data_source">
+      <argument name="dataProvider" xsi:type="configurableObject">
+         <argument name="class" xsi:type="string">Pits\Customization\Model\DataProvider</argument>
+         <argument name="name" xsi:type="string">customization_form_data_source</argument>
+         <argument name="primaryFieldName" xsi:type="string">id</argument>
+         <argument name="requestFieldName" xsi:type="string">id</argument>
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="submit_url" xsi:type="url" path="*/*/save" />
+            </item>
+         </argument>
+      </argument>
+      <argument name="data" xsi:type="array">
+         <item name="js_config" xsi:type="array">
+            <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+         </item>
+      </argument>
+   </dataSource>
+   <fieldset name="general_information">
+      <argument name="data" xsi:type="array">
+         <item name="config" xsi:type="array">
+            <item name="collapsible" xsi:type="boolean">false</item>
+            <item name="label" xsi:type="string" translate="true">Customization Details</item>
+            <item name="sortOrder" xsi:type="number">20</item>
+         </item>
+      </argument>
+      <field name="productname">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="disabled" xsi:type="string">${ $.provider }:data.do_we_hide_it</item>
+               <item name="dataType" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Product</item>
+               <item name="formElement" xsi:type="string">input</item>
+               <item name="source" xsi:type="string">productname</item>
+               <item name="dataScope" xsi:type="string">productname</item>
+            </item>
+         </argument>
+      </field>
+      <field name="sku">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="disabled" xsi:type="string">${ $.provider }:data.do_we_hide_it</item>
+               <item name="dataType" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">SKU</item>
+               <item name="formElement" xsi:type="string">input</item>
+               <item name="source" xsi:type="string">sku</item>
+               <item name="dataScope" xsi:type="string">sku</item>
+            </item>
+         </argument>
+      </field>
+      <field name="name">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="disabled" xsi:type="string">${ $.provider }:data.do_we_hide_it</item>
+               <item name="dataType" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Nickname</item>
+               <item name="formElement" xsi:type="string">input</item>
+               <item name="source" xsi:type="string">name</item>
+               <item name="dataScope" xsi:type="string">name</item>
+            </item>
+         </argument>
+      </field>
+      <field name="email">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="disabled" xsi:type="string">${ $.provider }:data.do_we_hide_it</item>
+               <item name="dataType" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Email</item>
+               <item name="formElement" xsi:type="string">input</item>
+               <item name="source" xsi:type="string">email</item>
+               <item name="dataScope" xsi:type="string">email</item>
+            </item>
+         </argument>
+      </field>
+      <field name="phone">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="disabled" xsi:type="string">${ $.provider }:data.do_we_hide_it</item>
+               <item name="dataType" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Phone</item>
+               <item name="formElement" xsi:type="string">input</item>
+               <item name="source" xsi:type="string">phone</item>
+               <item name="dataScope" xsi:type="string">phone</item>
+            </item>
+         </argument>
+      </field>
+      <field name="requirement">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="disabled" xsi:type="string">${ $.provider }:data.do_we_hide_it</item>
+               <item name="dataType" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Requirement</item>
+               <item name="formElement" xsi:type="string">input</item>
+               <item name="source" xsi:type="string">requirement</item>
+               <item name="dataScope" xsi:type="string">requirement</item>
+            </item>
+         </argument>
+      </field>
+   </fieldset>
+</form>

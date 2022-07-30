@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Pits_Customization::form" title="All Customizations" translate="title" module="Pits_Customization" sortOrder="30" action="customization/form" resource="Pits_Customization::form" parent="Magento_Backend::marketing_user_content"/>
+    </menu>
+</config>
